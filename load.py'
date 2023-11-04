@@ -1,0 +1,21 @@
+# load.py
+import pandas as pd
+import sys
+
+# Check for the correct number of command-line arguments
+if len(sys.argv) != 2:
+    print("Usage: python load.py <dataset_file>")
+    sys.exit(1)
+
+# Get the dataset file path from the user-provided argument
+dataset_file = sys.argv[1]
+
+# Read the dataset
+try:
+    data = pd.read_csv(dataset_file)
+    print("Dataset loaded successfully.")
+    # You can perform additional operations on the loaded data here.
+except FileNotFoundError:
+    print(f"File not found: {dataset_file}")
+
+
